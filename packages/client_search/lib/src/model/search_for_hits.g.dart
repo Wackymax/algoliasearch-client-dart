@@ -42,7 +42,9 @@ SearchForHits _$SearchForHitsFromJson(Map<String, dynamic> json) =>
           insideBoundingBox: $checkedConvert(
               'insideBoundingBox',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => (e as num).toDouble())
+                  ?.map((e) => (e as List<dynamic>)
+                      .map((e) => (e as num).toDouble())
+                      .toList())
                   .toList()),
           insidePolygon: $checkedConvert(
               'insidePolygon',
